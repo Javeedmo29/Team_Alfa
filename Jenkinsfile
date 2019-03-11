@@ -16,12 +16,7 @@ pipeline {
         }
       }
     }
-     stage('Aqua MicroScanner') {
-        steps{
-       aquaMicroscanner imageName:'java-app', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
-       
-        }
-    }
+     
        stage('Push Image') {
       steps{
          script {
@@ -32,6 +27,12 @@ pipeline {
       }
     }
        
+       stage('Aqua MicroScanner') {
+        steps{
+       aquaMicroscanner imageName:'java-app', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
+       
+        }
+    }
  stage('Cleanup') {
       when {
                 not { environment ignoreCase: true, name: 'containerId', value: '' }
