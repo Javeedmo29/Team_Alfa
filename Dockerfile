@@ -5,9 +5,9 @@ FROM python:3.6.8-slim
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY djangoproject /app
-COPY posts	 /app
-COPY manage.py /app
+COPY djangoproject/djangoproject /app
+COPY djangoproject/posts	 /app
+COPY djangoproject/manage.py /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
