@@ -16,10 +16,9 @@ pipeline {
         }
       }
     }
-     stage('Aqua scanner') {
+     stage('Aqua MicroScanner') {
         steps{
-       script {
-        sh 'aquaMicroscanner imageName:'java-app', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html''
+       aquaMicroscanner imageName:'java-app', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
        }
         }
     }
