@@ -29,7 +29,7 @@ pipeline {
        
        stage('Aqua MicroScanner') {
         steps{
-       aquaMicroscanner imageName:'dockerproject:34', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
+       aquaMicroscanner imageNameID:'7459f109dc97', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
        
         }
     }
