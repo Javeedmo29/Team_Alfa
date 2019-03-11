@@ -19,7 +19,7 @@ pipeline {
      stage('Aqua MicroScanner') {
         steps{
        aquaMicroscanner imageName:'java-app', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
-       }
+       
         }
     }
        stage('Push Image') {
