@@ -26,10 +26,20 @@ pipeline {
         }
       }
     }
+       
+             stage('Cleanup') {
+      when {
+                not { environment ignoreCase: true, name: 'containerId', value: '' }
+        }
+      steps {
+        sh 'docker stop ${containerId}'
+        sh 'docker rm ${containerId}'
+      }
+    }
       
     stage('Run Container') {
       steps {
-        sh 'docker run --name=java-app1 --privileged -d -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.sock $registry:$BUILD_NUMBER &'
+        sh 'docker run --name=java-app --privileged -d -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.sock $registry:$BUILD_NUMBER &'
       }
     }
     stage('Remove Unused docker image') {
