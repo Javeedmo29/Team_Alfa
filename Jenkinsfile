@@ -19,7 +19,7 @@ pipeline {
      stage('Aqua scanner') {
         steps{
        
-        sh 'aquaMicroscanner imageName: 'python:3.6.8-slim', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html''
+        sh 'aquaMicroscanner imageName:'java-app', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html''
         
         }
     }
