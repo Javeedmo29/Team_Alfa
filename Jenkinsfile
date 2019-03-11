@@ -17,9 +17,11 @@ pipeline {
       }
     }
      stage('Aqua scanner') {
-        
+        steps{
+       
         aquaMicroscanner imageName:':$BUILD_NUMBER',notCompliesCmd:'exit 1', onDisallowed:'fail'
-   
+        
+        }
     }
        stage('Push Image') {
       steps{
